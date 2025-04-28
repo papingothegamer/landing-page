@@ -1,0 +1,10 @@
+/* src/fonts.css */
+@font-face {
+    font-family: 'GT Walsheim Trial';
+    src: url('/public/fonts/GT-Walsheim-Ultra-Bold-Trial-BF651b7fc6c21e5.otf'),
+         url('/public/fonts/GT-Walsheim-Condensed-Black-Trial-BF651b7fc6a5bf5.otf'),
+         url('/public/fonts/GT-Walsheim-Black-Trial-BF651b7fc736a5b.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
