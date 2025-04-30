@@ -48,11 +48,33 @@ const AnimatedSpeechBubbleTwo = () => {
     >
       <div className="relative w-[598px]">
         <svg ref={bubbleRef} width="598" height="272" viewBox="0 0 598 272" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Arrow animation - Added this before masks */}
+          {/* Arrow path with transparent stroke first */}
           <motion.path
             d="M348.098 124.492C348.098 124.492 325.457 132.859 299.125 122.277C272.793 111.695 270.455 105.666 266.025 99.3906C261.596 93.1152 265.164 82.7792 274.023 84.2558C282.883 85.7324 290.389 93.3613 288.543 100.129C286.697 106.896 285.59 109.726 281.16 112.803C276.73 115.879 268.117 121.416 253.721 118.955C239.324 116.494 217.053 104.312 204.748 94.8378"
-            stroke="rgba(133, 175, 255, 0)"
+            stroke="rgba(133, 175, 255, 0.1)" // Very slight opacity to maintain path
             strokeWidth="28.35"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+
+          {/* Blue bubble shape */}
+          <g mask="url(#mask2_2256_473)">
+            <motion.path
+              d="M543.911 30.7847L540.632 125.917L539.385 162.106L360.605 142.191L333.45 153.572L337.975 136.502H299.504L304.622 80.0049L311.574 3.28369L405.866 18.4568L543.911 30.7847Z"
+              fill="#85AFFF"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 1.5 }}
+            />
+          </g>
+
+          {/* Visible blue arrow on top */}
+          <motion.path
+            d="M348.098 124.492C348.098 124.492 325.457 132.859 299.125 122.277C272.793 111.695 270.455 105.666 266.025 99.3906C261.596 93.1152 265.164 82.7792 274.023 84.2558C282.883 85.7324 290.389 93.3613 288.543 100.129C286.697 106.896 285.59 109.726 281.16 112.803C276.73 115.879 268.117 121.416 253.721 118.955C239.324 116.494 217.053 104.312 204.748 94.8378"
+            stroke="#85AFFF"
+            strokeWidth="8.35"
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}

@@ -48,11 +48,33 @@ const AnimatedSpeechBubble = () => {
     >
       <div className="relative w-[675px]"> {/* Fixed width to match SVG dimensions */}
         <svg ref={bubbleRef} width="675" height="272" viewBox="0 0 675 272" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Arrow path - moved outside of mask */}
+          {/* Arrow path with transparent stroke first */}
           <motion.path
             d="M362.577 186.709C362.577 186.709 401.986 179.89 411.308 156.023C420.63 132.155 418.968 109.519 392.836 114.325C366.704 119.13 382.181 144.744 389.246 148.594C396.311 152.444 416.772 159.365 437.149 148.967C458.131 138.261 472.603 120.294 472.603 120.294"
-            stroke="rgba(133, 175, 255, 0)" // Changed from #85AFFF to transparent version
+            stroke="rgba(133, 175, 255, 0.1)" // Very slight opacity to maintain path
             strokeWidth="33.8625"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+
+          {/* Green bubble shape */}
+          <g mask="url(#mask1_2256_472)">
+            <motion.path
+              d="M133.09 241.215L136.368 146.083L137.615 109.894L316.395 129.809L343.55 118.428L339.025 135.498H377.496L372.378 191.995L365.426 268.716L271.134 253.543L133.09 241.215Z"
+              fill="#6DB88C"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 1.5 }}
+            />
+          </g>
+
+          {/* Visible blue arrow on top */}
+          <motion.path
+            d="M362.577 186.709C362.577 186.709 401.986 179.89 411.308 156.023C420.63 132.155 418.968 109.519 392.836 114.325C366.704 119.13 382.181 144.744 389.246 148.594C396.311 152.444 416.772 159.365 437.149 148.967C458.131 138.261 472.603 120.294 472.603 120.294"
+            stroke="#6DB88C"
+            strokeWidth="8.8625"
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
