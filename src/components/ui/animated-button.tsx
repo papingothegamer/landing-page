@@ -9,6 +9,7 @@ interface AnimatedButtonProps {
   backgroundColor?: string;
   textColor?: string;
   iconPosition?: 'left' | 'right';
+  variant?: 'default' | 'navbar';
 }
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -18,10 +19,24 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   backgroundColor = '#85AFFF',
   textColor = '#000000',
   iconPosition = 'right',
+  variant = 'default',
 }) => {
+  const buttonStyles = {
+    default: {
+      wrapper: 'w-[221px] h-[53px] rounded-[4px]',
+      inner: 'rounded-[4px] text-base',
+    },
+    navbar: {
+      wrapper: 'w-[169px] h-[41px] rounded-[2px]',
+      inner: 'rounded-[2px] text-sm',
+    }
+  };
+
+  const styles = buttonStyles[variant];
+
   return (
     <motion.div
-      className={`relative w-[221px] h-[53px] rounded-[4px] p-[2px] ${className}`}
+      className={`relative ${styles.wrapper} p-[2px] ${className}`}
       initial={{
         background: 'conic-gradient(from 0deg, #5372B4, #775AA2, #C23550, #EC7E32, #EFB12F, #4C8061, #5372B4)',
       }}
@@ -44,15 +59,15 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       }}
     >
       <div
-        className="w-full h-full rounded-[4px] flex items-center justify-center font-body text-base transition-all duration-300 select-none cursor-pointer"
+        className={`w-full h-full ${styles.inner} flex items-center justify-center font-body transition-all duration-300 select-none cursor-pointer`}
         style={{
           backgroundColor,
           color: textColor,
         }}
       >
-        {iconPosition === 'left' && Icon && <Icon size={16} className="mr-2" />}
+        {iconPosition === 'left' && Icon && <Icon size={variant === 'navbar' ? 14 : 16} className="mr-2" />}
         {text}
-        {iconPosition === 'right' && Icon && <Icon size={16} className="ml-2" />}
+        {iconPosition === 'right' && Icon && <Icon size={variant === 'navbar' ? 14 : 16} className="ml-2" />}
       </div>
     </motion.div>
   );
