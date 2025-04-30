@@ -3,6 +3,7 @@ import { PlayCircle } from 'lucide-react';
 import backgroundImage from '../assets/freepik__the-style-is-candid-image-photography-with-natural__87410.png';
 import foregroundImage from '../assets/Adobe Express - file 1.png';
 import AnimatedButton from '../components/ui/animated-button';
+import AnimatedSpeechBubble from '../components/AnimatedSpeechBubble';
 
 const Home = () => {
   return (
@@ -24,6 +25,11 @@ const Home = () => {
         alt="Foreground"
         className="absolute bottom-[-110px] left-1/2 transform -translate-x-1/2 w-auto max-w-none h-auto z-30 pointer-events-none"
       />
+      
+      {/* AnimatedSpeechBubble positioned on the left side */}
+      <div className="absolute bottom-[300px] left-[15%] md:left-[18%] lg:left-[7.5%] lg:bottom-[18%] z-40">
+        <AnimatedSpeechBubble />
+      </div>
 
       {/* Main Content */}
       <div className="relative z-40 flex flex-col items-center px-4 sm:px-6 md:px-0 mt-[120px]">
@@ -39,12 +45,12 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col justify-center items-center w-full max-w-[715px] mt-1 md:mt-2 mb-2 md:mb-3 px-2">
-  <p className="text-[20px] md:text-[20px] leading-[32px] md:leading-[36px] text-center text-[#181818] font-body select-none">
-    Find peace in a safe, anonymous community where shared experiences
-    foster healing. Join our daily mental health check-ins and get support
-    tailored for you.
-  </p>
-</div>
+          <p className="text-[20px] md:text-[20px] leading-[32px] md:leading-[36px] text-center text-[#181818] font-body select-none">
+            Find peace in a safe, anonymous community where shared experiences
+            foster healing. Join our daily mental health check-ins and get support
+            tailored for you.
+          </p>
+        </div>
 
         <AnimatedButton
           text="See How It Feels"
