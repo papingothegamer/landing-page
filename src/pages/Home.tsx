@@ -4,6 +4,7 @@ import backgroundImage from '../assets/freepik__the-style-is-candid-image-photog
 import foregroundImage from '../assets/Adobe Express - file 1.png';
 import AnimatedButton from '../components/ui/animated-button';
 import AnimatedSpeechBubble from '../components/AnimatedSpeechBubble';
+import AnimatedSpeechBubbleTwo from '../components/AnimatedSpeechBubbleTwo';
 
 const Home = () => {
   return (
@@ -29,6 +30,11 @@ const Home = () => {
       {/* AnimatedSpeechBubble positioned on the left side */}
       <div className="absolute bottom-[300px] left-[15%] md:left-[18%] lg:left-[7.5%] lg:bottom-[18%] z-40">
         <AnimatedSpeechBubble />
+      </div>
+
+      {/* AnimatedSpeechBubbleTwo positioned on the right side */}
+      <div className="absolute bottom-[300px] right-[15%] md:right-[18%] lg:right-[7.5%] lg:bottom-[18%] z-40">
+        <AnimatedSpeechBubbleTwo />
       </div>
 
       {/* Main Content */}
